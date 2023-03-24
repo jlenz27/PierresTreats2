@@ -10,4 +10,7 @@ public class Treat
   [Required(ErrorMessage = "Please enter a name for the treat.")]
   public string TreatName { get; set; }
   public List<FlavorTreat> JoinEntities { get; set; }
+
+   public ApplicationUser User { get; set; } 
+
 }

@@ -31,8 +31,8 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.FlavorId)
-  @Html.Label("Select Tag")
-  @Html.DropDownList("TagId")
+  @Html.Label("Select Treat")
+  @Html.DropDownList("TreatId")
 
   <input type="submit" class="button"value="Add" />
 }

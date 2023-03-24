@@ -13,15 +13,15 @@ using System.Security.Claims;
 
 using PierresTreats.Models;
 
-namespace RecipeBox.Controllers
+namespace PierresTreats.Controllers
 { 
   [Authorize]
-  public class TagsController : Controller
+  public class TreatsController : Controller
   {
     private readonly PierresTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public TagsController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -87,7 +87,7 @@ namespace RecipeBox.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddRecipe(int id)
+    public ActionResult AddTreat(int id)
     {
       Treat thisTag = _db.Treats
                           .FirstOrDefault(tags => tags.TreatId == id);
@@ -96,7 +96,7 @@ namespace RecipeBox.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddRecipe(Treat treat, int flavorId)
+    public ActionResult AddTreat(Treat treat, int flavorId)
     {
       #nullable enable
       FlavorTreat? joinEntity = _db.FlavorTreats.FirstOrDefault(join => (join.FlavorId == flavorId && join.TreatId == treat.TreatId));
