@@ -70,16 +70,16 @@ namespace PierresTreats.Controllers
     public ActionResult Details(int id)
     {
       Flavor ThisFlavor = _db.Flavors
-        .Include(recipe => recipe.JoinEntities)
-        .ThenInclude(recipe => recipe.Treat)
-        .FirstOrDefault(recipe => recipe.FlavorId == id);
+        .Include(flavor => flavor.JoinEntities)
+        .ThenInclude(flavor => flavor.Treat)
+        .FirstOrDefault(flavor => flavor.FlavorId == id);
 
       return View(ThisFlavor);
     }
 
     public ActionResult Edit(int id)
     {
-      Flavor thisFlavor = _db.Flavors.FirstOrDefault(recipe => recipe.FlavorId == id);
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
 
     }
@@ -94,14 +94,14 @@ namespace PierresTreats.Controllers
 
       public ActionResult Delete(int id)
     {
-      Flavor thisFlavor = _db.Flavors.FirstOrDefault(recipe => recipe.FlavorId == id);
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Flavor thisFlavor= _db.Flavors.FirstOrDefault(recipe => recipe.FlavorId == id);
+      Flavor thisFlavor= _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       _db.Flavors.Remove(thisFlavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -112,8 +112,8 @@ namespace PierresTreats.Controllers
         Flavor thisFlavor = _db.Flavors
                               .Include(fish => fish.JoinEntities)
                               .ThenInclude(join => join.Treat)
-                              .FirstOrDefault(recipes => recipes.FlavorId == id);
-        ViewBag.TagId = new SelectList(_db.Treats, "TreatId", "TreatName");
+                              .FirstOrDefault(flavors => flavors.FlavorId == id);
+        ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
         return View(thisFlavor);
     }
 
