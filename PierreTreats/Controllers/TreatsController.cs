@@ -32,6 +32,17 @@ namespace PierresTreats.Controllers
       return View(_db.Treats.ToList());
     }
 
+        public async Task<ActionResult> MyTreat()
+    {
+      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+      List<Treat> userItems = _db.Treats
+                          .Where(entry => entry.User.Id == currentUser.Id)
+                          .Include(item => item.Flavor)
+                          .ToList();
+      return View(userItems);
+    }
+
     public ActionResult Create()
     {
       return View();

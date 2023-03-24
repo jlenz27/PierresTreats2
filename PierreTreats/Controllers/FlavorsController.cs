@@ -29,7 +29,7 @@ namespace PierresTreats.Controllers
     {
       return View(_db.Flavors.ToList());
     }
-    public async Task<ActionResult> MyFlavors()
+    public async Task<ActionResult> MyFlavor()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
