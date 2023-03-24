@@ -11,4 +11,9 @@ public class Flavor
   public string FlavorName { get; set; }
   public List<FlavorTreat> JoinEntities { get; set; }
 
+      public ApplicationUser User { get; set; }
+
+      public Treat Treat {get; set;}
+
+
 }
