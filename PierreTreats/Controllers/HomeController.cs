@@ -3,7 +3,7 @@ using PierresTreats.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PierresTreats.Controllers;
+namespace PierreTreats.Controllers;
 
 public class HomeController : Controller
 {

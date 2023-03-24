@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresTreats.ViewModels
+
+@model LoginViewModel
+
+<h1>Log in with your account</h1>
+<hr/>
+
+@if(!ViewData.ModelState.IsValid) 
+{
+  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:") 
+}
+<div class="userInfo">
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Email)
+  @Html.TextBoxFor(m => m.Email)
+
+  @Html.LabelFor(m => m.Password)
+  @Html.EditorFor(m => m.Password)
+
+  <input type="submit" class="button" value="Log in">
+}
+</div>
+
+
+</p>
+
+<a href='@Url.Action("Register")'>
+  <button type="button" class="button">Sign up</button>
+</a>
+<br><br>
+<a href='@Url.Action("Index")'>
+  <button type="button" class="button">Back</button>
+</a>
+
