@@ -38,7 +38,7 @@ namespace PierresTreats.Controllers
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
       List<Treat> userItems = _db.Treats
                           .Where(entry => entry.User.Id == currentUser.Id)
-                          .Include(item => item.Flavor)
+                          .Include(item => item.TreatName)
                           .ToList();
       return View(userItems);
     }
