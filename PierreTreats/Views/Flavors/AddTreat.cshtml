@@ -1,0 +1,43 @@
+@{
+  Layout = "_Layout";
+} 
+
+@using PierresTreats.Models
+@model PierresTreats.Models.Flavor
+
+@if(Model.JoinEntities.Count ==0)
+{
+  <h4> @Html.DisplayFor(model => model.FlavorName) is not assigned to any Treats!</h4>
+  <h3>Add one using the dropdown list below:</h3>
+}
+<ul>
+  @if(@Model.JoinEntities.Count != 0)
+  {
+    <h1>@Html.DisplayFor(model => Model.FlavorName)</h1>
+      <h2>Treats:</h2>
+  }
+
+  @foreach (FlavorTreat join in Model.JoinEntities)
+  {
+    <li><strong>@join.Treat.TreatName</strong></li>
+    @using (Html.BeginForm("DeleteJoin", "Tags"))
+    {
+      @Html.Hidden("joinId", @join.FlavorTreatId)
+      <input type="submit"  value="Delete"/>
+    }
+  }
+</ul>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+  @Html.Label("Select Tag")
+  @Html.DropDownList("TagId")
+
+  <input type="submit" class="button"value="Add" />
+}
+<br>
+<a href='@Url.Action("Index")'>
+    <button type="button" class="button">Back to List</button>
+</a>
+

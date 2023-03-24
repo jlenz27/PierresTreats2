@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresTreats.Models.Flavor
+
+<p>@Html.ValidationMessageFor(model => model.FlavorId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.FlavorName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<h1> Add a new Flavor </h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.FlavorName)
+  @Html.TextBoxFor(model => model.FlavorName)
+
+  <br>
+  <input type="submit" class="button" value="Add Flavor">
+}

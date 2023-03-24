@@ -1,0 +1,44 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresTreats.Models
+@model PierresTreats.Models.Flavor
+
+<h1>Flavor Details</h1>
+<hr />
+<h3>Flavor Names: @Html.DisplayFor(model => model.FlavorName)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <h2>This recipe does not have any Flavors yet!</h2>
+}
+else
+{<p>This Flavor is in these treats:</p>
+  <ul>
+    @foreach (FlavorTreat fish in Model.JoinEntities)
+    {
+      <li>  @fish.Treat.TreatName</li>
+      @using (Html.BeginForm("DeleteFish", "Tags"))
+      {
+        @Html.Hidden("FishId", fish.FlavorTreatId)
+      
+      }
+      @* @Html.Hidden("FishId", @fish.RecipeTagId)
+      <input type="submit" value="Delete" /> *@
+    }
+  </ul>
+}
+<a href='@Url.Action("AddTag", new { id = Model.FlavorId })'>
+  <button type="button" class="button">Add/Remove a Treat</button>
+</a>
+<a href='@Url.Action("Edit", new { id = Model.FlavorId })'>
+  <button type="button" class="button">Edit this Flavor</button>
+</a>
+<a href='@Url.Action("Delete", new { id = Model.FlavorId })'>
+  <button type="button" class="button">Delete this Flavor</button>
+</a>
+<br><br>
+<a href='@Url.Action("Index")'>
+  <button type="button" class="button">Return Home</button>
+</a>
