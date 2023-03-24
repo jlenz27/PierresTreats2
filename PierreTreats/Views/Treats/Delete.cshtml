@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+
+@model PierresTreats.Models.Treat
+
+<h4>Delete a Treat?</h4>
+
+@Html.DisplayFor(model => model.TreatName)
+@using (Html.BeginForm())
+{
+    <input type="submit" class="button" value="Delete"/>
+}
+<br>
+@Html.ActionLink("Back to all Treats", "Index")

@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresTreats.Models
+@model PierresTreats.Models.Treat
+
+<h4>Assign a Treat to Flavor: @Html.DisplayFor(model => model.TreatName)</h4>
+
+<ul>
+  @foreach (FlavorTreat join in Model.JoinEntities)
+  {
+      <li><strong>@join.Flavor.FlavorName</strong></li>
+    @using (Html.BeginForm("DeleteJoin", "Tags"))
+    {
+      @Html.Hidden("joinId", @join.FlavorTreatId)
+      <input type="submit" value="Delete" />
+    }
+  }
+</ul>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value="Save" />
+}
+<br>
+<p>@Html.ActionLink("Back to All Treats", "Index")</p>
