@@ -1,15 +1,13 @@
+
 <!DOCTYPE html>
 <html>
   <head>
   <meta charset="utf-8">
-  <title>Pierr's Sweet and Savory Treats</title>
+  <title>Pierres Treats</title>
     <link rel="icon" type="image/png" href="https://www.pngfind.com/pngs/m/242-2426710_png-50-px-butcher-knife-icon-png-transparent.png">
     
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
@@ -17,31 +15,14 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-<header id="header" class="fixed-top d-flex align-items-cente">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">     
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
-          <li><a class="nav-link scrollto" href="#events">Events</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>      
-
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
-
-    </div>
-  </header><!-- End Header -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+<a class="nav-link enlarge" href='/Flavors'>Flavors</a> 
+        <a class="nav-link enlarge" href='/Treats'>Treats</a> 
+        <a class="nav-link enlarge" href='/Flavors/MyFlavor'> My Added Flavors</a>
+        <a class="nav-link enlarge" href='/Account'> Login</a></div>
+   </div>
 </nav>
     @RenderBody()
     <br>
-   
   </body>
 </html>
